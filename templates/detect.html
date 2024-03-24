@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FaceLinker</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/detect.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body id="root">
+    <header>
+      <div class="logo"></div>
+      <div class="website-name">FaceLinker</div>
+      <div class="logout">
+        <form action="/logout" method="post">
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
+      </div>
+    </header>
+    <div class="container">
+      <div class="download-container">
+        <h1 class="heading">Face Matches</h1>
+        <div class="download-btn-container">
+          {% if output_files | length > 0 %}
+            <button class="download-btn" onclick="download()">Download</button>
+          {% else %}
+            <button id="homeButton" class="download-btn" onclick="goHome()">Return to<br/>Home Page</button>
+          {% endif %}
+        </div>
+      </div>
+      <div class="preview-container">
+        <div class="image-container">
+          {% if output_files | length == 0 %}
+            <div class="no-image">
+              <h2>No matches</h2>
+            </div>
+          {% else %}
+            {% for image in output_files %}
+              <div class="img">
+                  <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Image" class="preview-image">
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <footer>Copyright©2024</footer>
+    <script src="../static/scripts/detect.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/styles/login.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="../static/images/background.jpg"
+        alt="login image"
+        class="background-img"
+      />
+      <div class="overlay">
+        <div class="left-container" id="left">
+          <!-- <div class="left-container-bg" id="info-container"> -->
+            <div class="action-container">
+              <h1 id="instruction">Not a member yet?</h1>
+              <button
+                id="toggle-btn"
+                class="toggle-btn"
+                onclick="toggleLogin()"
+              >
+                Register
+              </button>
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class="right-container" id="right">
+          <div class="login-form-container">
+            <form action="/login" method="post" class="login-form">
+              <h1 id="heading">Login</h1>
+              <div class="input-container">
+                <div class="login-input login-input1">
+                  <i class="ri-user-3-line"></i>
+                  <input
+                    type="email"
+                    name="email"
+                    class="text-input"
+                    id="login-email"
+                    placeholder=""
+                    autocomplete="off"
+                    required
+                  />
+                  <label for="login-email" class="login-label">Email</label>
+                </div>
+                <div class="login-input">
+                  <i class="ri-lock-2-line"></i>
+                  <input
+                    type="password"
+                    name="password"
+                    class="text-input"
+                    id="login-pass"
+                    placeholder=""
+                    autocomplete="off"
+                    required
+                  />
+                  <label for="login-pass" class="login-label">Password</label>
+                  <i class="ri-eye-off-line" id="login-eye"></i>
+                </div>
+              </div>
+              <div id="login-options" class="login-options">
+                <div class="remember-me-container">
+                  <input type="checkbox" class="remember-me" id="remember-me" />
+                  <label for="remember-me" class="remember-me-label"
+                    >Remember me</label
+                  >
+                </div>
+                <a href="#" class="login_forgot">Forgot Password?</a>
+              </div>
+              <button type="submit" id="submit" class="submit-btn">
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../static/scripts/login.js"></script>
+  </body>
+</html>

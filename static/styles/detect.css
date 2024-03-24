@@ -1,0 +1,201 @@
+body {
+  position: relative;
+  height: 100vh;
+  margin: 0;
+}
+/* #3f2f25 */
+header {
+  display: flex;
+  background-color: #351201;
+  padding: 10px;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 120px;
+}
+
+.website-name {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(245, 191, 173);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: small;
+  text-align: center;
+  color: #3f2f25;
+  user-select: none;
+}
+
+.container {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* gap: 10px; */
+  height: calc(100% - 70px);
+  /* width: 100vw; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-color: #e2b497;
+}
+
+.download-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 15px;
+  height: 15%;
+  width: 80%;
+  color: #3f2f25;
+}
+
+.preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85%;
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: calc(100% - 25px);
+  width: calc(100% - 20px);
+  overflow-y: scroll;
+  scrollbar-width: none;  /* For Firefox */
+}
+.image-container::-webkit-scrollbar {
+  width: 0;  /* For Chrome, Safari, and Opera */
+}
+
+
+.img {
+  display: flex;
+  flex: 1 0 calc(16.667% - 20px);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: auto; 
+  max-height: 300px;
+}
+
+.preview-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.no-image {
+  width: 100%;
+  text-align: center;
+}
+
+.logout-btn {
+  width: 120px;
+  height: 45px;
+  background: transparent;
+  border: 2px solid #e2b497;
+  border-radius: 6px;
+  margin-top: 13px;
+  margin-right: 13px;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: rgb(241, 217, 208);
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .3s;
+  background: linear-gradient(to right, #e2b497 50%, transparent 50%) right;
+  background-size: 220%;
+}
+
+.logout-btn:hover {
+  background-position: left;
+  color: #351201;
+}
+
+.download-btn {
+  scale: 1;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  background: transparent;
+  border: 2px solid #351201;
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #3f2f25;
+  font-weight: 800;
+  margin: 15px;
+  background: transparent;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.download-btn:hover {
+  border-color: #3f2f25;
+  color: white;
+}
+
+.download-btn::before {
+  content: "";
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  left: -102%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 50%, #3f2f25 50%);
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+.download-btn:hover::before {
+  left: 0;
+}
+
+.download-btn::after {
+  content: "";
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  left: 102%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #3f2f25 50%, transparent 50%);
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+.download-btn:hover::after {
+  left: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .img {
+    flex: 1 0 33.334%; 
+  }
+  .heading {
+    font-size: 25px;
+  }
+  .download-btn {
+    width: 150px;
+    height: 50px;
+  }
+}
