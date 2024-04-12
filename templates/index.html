@@ -37,36 +37,21 @@
                 Upload
                 <div id="loader1" class="loader"></div>
               </div>
-              <p>
-                <span class="material-symbols-outlined icon"> emoji_objects </span
-                >The image must only contain 1 face
-              </p>
-              <div id="image-preview1" class="image-preview">
-                <img id="referenceImage" src="" alt="Uploaded Image" />
-              </div>
+              {% if error %}
+                <p class="warning">
+                  <span class="material-symbols-outlined icon"> warning </span
+                  >The image must contain <span style="font-weight: bold;">exactly</span> 1 face
+                </p>
+              {% endif %}
+              
             </div>
           </div>
           <!-- <div class="separator"></div> -->
           <div class="right-container">
             <div id="right-container" class="upload-container2">
-              <h2>Upload Images to Compare</h2>
-              <div class="btn-info-container">
-                <div class="upload-btn">
-                  <input
-                    type="file"
-                    id="upload_target"
-                    name="target"
-                    accept="image/*"
-                    onchange="handleTargetFile()"
-                    multiple
-                  />
-                  Upload
-                  <div id="loader2" class="loader"></div>
-                </div>
-                <p id="information">
-                  <span id="count"></span> uploaded succesfully!<br />Proceed to
-                  compare.
-                </p>
+              <h2 id="referenceTitle">Reference Image Preview</h2>
+              <div id="image-preview1" class="image-preview">
+                <img id="referenceImage" src="" alt="Uploaded Image" />
               </div>
               <div class="submit">
                 <button
@@ -81,9 +66,6 @@
                   <span id="arrow-icon" class="material-symbols-outlined"> arrow_forward </span>
                 </button>
               </div>
-              <p class="warning"><span class="material-symbols-outlined icon">
-                warning
-                </span>Detecting faces may take a while</p>
             </div>
           </div>
         </form>

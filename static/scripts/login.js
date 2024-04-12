@@ -22,14 +22,16 @@ function togglePassword(){
 }
 
 function toggleLogin() {
-  console.log(toggle)
-  left = document.getElementById('left');
-  right = document.getElementById('right');
-  heading = document.getElementById('heading');
-  instruction = document.getElementById('instruction');
-  toggle_btn = document.getElementById('toggle-btn');
-  submit_btn = document.getElementById('submit');
-  login_options = document.getElementById('login-options');
+  const left = document.getElementById('left');
+  const right = document.getElementById('right');
+  const heading = document.getElementById('heading');
+  const instruction = document.getElementById('instruction');
+  const toggle_btn = document.getElementById('toggle-btn');
+  const submit_btn = document.getElementById('submit');
+  const login_options = document.getElementById('login-options');
+  const form = document.getElementById('login-form');
+  const alert = document.getElementById('alert');
+
   if (toggle === "left") {
     toggle = "right";
     right.style.animation = "right-slide-left 0.5s ease-in forwards";
@@ -39,6 +41,8 @@ function toggleLogin() {
     toggle_btn.innerHTML = "Login";
     submit_btn.innerHTML = "Register";
     login_options.style.display = "none";
+    alert.innerHTML = ""
+    form.action = "/register";
   } else if (toggle === "right") {
     toggle = "left";
     right.style.animation = "right-slide-right 0.5s ease-out forwards";
@@ -48,6 +52,7 @@ function toggleLogin() {
     toggle_btn.innerHTML = "Register";
     submit_btn.innerHTML = "Login";
     login_options.style.display = "flex";
+    form.action = "/login";
   }
 }
 

@@ -6,3 +6,8 @@ function download() {
   link.click();
   document.body.removeChild(link);
 }
+
+function goHome() {
+  window.location.href = '/';
+}
+

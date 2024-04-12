@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FaceLinker</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/admin.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  </head>
+  <body id="root">
+    <header>
+      <div class="logo">
+        <!-- <span class="material-symbols-outlined" onclick="goHome()">
+          home
+          </span> -->
+      </div>
+      <div class="website-name">FaceLinker</div>
+      <div class="logout">
+        <form action="/logout" method="post">
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
+      </div>
+    </header>
+    <div class="container">
+      <div class="upload-container">
+        <h1 class="heading">Gallery</h1>
+        <div class="upload-btn-container">
+            <!-- <button class="upload-btn" onclick="upload()">Upload</button> -->
+            <div class="upload-btn" onclick="upload()">
+              <input
+                type="file"
+                id="upload_image"
+                name="reference"
+                accept="image/*"
+                onchange="handleUpload()"
+                multiple
+              />
+              Upload
+              <div id="loader1" class="loader"></div>
+            </div>
+        </div>
+      </div>
+      <div class="preview-container">
+        <div id="image-container" class="image-container">
+          {% if preview_files | length == 0 %}
+            <div class="no-image">
+              <h2>Gallery is empty!</h2>
+            </div>
+          {% else %}
+            {% for image in preview_files %}
+              <div class="img">
+                  <img src="{{ url_for('static', filename='image_storage/' + image) }}" alt="Image" class="preview-image">
+                  <form action="/delete" method="post" onsubmit="return confirmDelete()">
+                    <input type="hidden" name="filename" value="{{ image }}">
+                    <input id="{{ image }}" type="submit" value="Delete" class="delete-btn">
+                    <label for="{{ image }}" class="delete-label">
+                      <span class="material-symbols-outlined">
+                        delete
+                      </span>
+                    </label>
+                  </form>
+                </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <footer>Copyright©2024</footer>
+    <script src="../static/scripts/admin.js"></script>
+  </body>
+</html>
