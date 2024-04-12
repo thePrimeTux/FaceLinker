@@ -1,9 +1,12 @@
 # FaceLinker
-A website to detect all images containing a particular persons face.
+A website to detect all images that matches a persons face.
 
-To update the images in ./static/image_storage:
-  -Copy the images into the folder
-  -Run update_encodings
+## Admin login lets you update the images in the backend
+
+Username: admin@gmail.com
+Password: admin
+
+## User login lets you find all face matches of a reference face
 
 Note:
   -If you have trouble building wheels for dlib. Download dlib file from [here](https://github.com/Murtaza-Saeed/dlib/tree/master) and install it manually.
